@@ -1,7 +1,5 @@
 selenium
 pandas
 elasticsearch
-scikit-image
-matplotlib
 pyarrow
 boto3

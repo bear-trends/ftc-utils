@@ -1,13 +1,3 @@
-graft src/leboncoin_selenium/api
-graft src/leboncoin_selenium/process
-graft src/leboncoin_selenium/utils
-graft src/leboncoin_selenium
-graft src/vinted_selenium/api
-graft src/vinted_selenium/process
-graft src/vinted_selenium
 graft src/ftc_utils
 graft src/ftc_utils/selenium
 graft src/ftc_utils/data
-graft src/ebay_selenium/api
-graft src/ebay_selenium/process
-graft src/ebay_selenium
