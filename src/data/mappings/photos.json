@@ -1,0 +1,58 @@
+{
+    "settings": {
+        "analysis": {
+            "normalizer": {
+                "custom_lower_ascii": {
+                    "type": "custom",
+                    "char_filter": [],
+                    "filter": [
+                        "lowercase",
+                        "asciifolding"
+                    ]
+                }
+            }
+        }
+    },
+    "mappings": {
+        "properties": {
+            "id": {
+                "type": "keyword"
+            },
+            "image_no": {
+                "type": "long"
+            },
+            "width": {
+                "type": "long"
+            },
+            "height": {
+                "type": "long"
+            },
+            "dominant_color": {
+                "type": "keyword",
+                "ignore_above": 64,
+                "normalizer": "custom_lower_ascii"
+            },
+            "dominant_color_opaque": {
+                "type": "keyword",
+                "ignore_above": 64,
+                "normalizer": "custom_lower_ascii"
+            },
+            "url": {
+                "type": "keyword",
+                "ignore_above": 512
+            },
+            "is_main": {
+                "type": "boolean"
+            },
+            "platform": {
+                "type": "keyword",
+                "ignore_above": 64,
+                "normalizer": "custom_lower_ascii"
+            },
+            "sourced_at": {
+                "type": "date",
+                "format": "dd/MM/yyy HH:mm"
+            }
+        }
+    }
+}
