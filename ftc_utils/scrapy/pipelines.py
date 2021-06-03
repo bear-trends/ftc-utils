@@ -85,9 +85,6 @@ class ElasticsearchPipeline(object):
 
     def get_upload_generator(self):
         for index, rows in self.results.items():
-            # pass if index not in saved_indexes
-            if self.saved_indexes and index not in self.saved_indexes:
-                continue
             for row in rows:
                 # id is platform + id to avoid duplicates
                 # inbetween platforms
@@ -115,6 +112,9 @@ class ElasticsearchPipeline(object):
 
     def process_item(self, item, spider):
         index = item.es_index
+        # pass if index not in saved_indexes
+        if self.saved_indexes and index not in self.saved_indexes:
+            return None
         item['platform'] = self.platform
         item['sourced_at'] = datetime.datetime.now().strftime(
             '%d/%m/%Y %H:%M'
