@@ -3,3 +3,4 @@ pandas
 elasticsearch
 pyarrow
 boto3
+scrapy
