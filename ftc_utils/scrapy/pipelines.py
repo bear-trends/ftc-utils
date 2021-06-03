@@ -1,13 +1,10 @@
 import datetime
 import gc
 import pickle
-
-import boto3
 import pandas as pd
-from elasticsearch import Elasticsearch, RequestsHttpConnection, helpers
-from requests_aws4auth import AWS4Auth
-
+from elasticsearch import helpers
 from ..data.exporter import Exporter
+from ..data.api import get_es_connection
 
 
 class S3Pipeline(object):
@@ -61,38 +58,36 @@ class ElasticsearchPipeline(object):
     """Pipeline saving locacally on ElasticSearch
     """
 
-    def __init__(self, platform, bucket_name, max_items_buffer):
+    def __init__(
+        self,
+        platform,
+        bucket_name,
+        max_items_buffer,
+        saved_indexes
+    ):
         self.bucket_name = bucket_name
         self.platform = platform
-        host = ('search-ftc-search-qwscz5vukur2jlufkud'
-                'lbiqhli.eu-west-3.es.amazonaws.com')
-        region = 'eu-west-3'  # e.g. us-west-1
-        service = 'es'
-        credentials = boto3.Session().get_credentials()
-        awsauth = AWS4Auth(credentials.access_key, credentials.secret_key,
-                           region, service, session_token=credentials.token)
-        self.es = Elasticsearch(
-            hosts=[{'host': host, 'port': 443}],
-            http_auth=awsauth,
-            use_ssl=True,
-            verify_certs=True,
-            connection_class=RequestsHttpConnection
-        )
+        self.es = get_es_connection()
         self.exporter = Exporter(mode="s3", aws_bucket=bucket_name)
         self.results = {}
         self.current_hold_items = 0
         self.max_items_buffer = max_items_buffer
+        self.saved_indexes = saved_indexes
 
     @classmethod
     def from_crawler(cls, crawler):
         return cls(
             platform=crawler.settings.get("PLATFORM"),
             bucket_name=crawler.settings.get("BUCKET_NAME"),
-            max_items_buffer=crawler.settings.get("MAX_ITEMS_BUFFER")
+            max_items_buffer=crawler.settings.get("MAX_ITEMS_BUFFER"),
+            saved_indexes=crawler.settings.get("SAVED_INDEXES")
         )
 
     def get_upload_generator(self):
         for index, rows in self.results.items():
+            # pass if index not in saved_indexes
+            if self.saved_indexes and index not in self.saved_indexes:
+                continue
             for row in rows:
                 # id is platform + id to avoid duplicates
                 # inbetween platforms

@@ -106,7 +106,7 @@
                 "ignore_above": 512
             },
             "user_id": {
-                "type": "long"
+                "type": "keyword"
             },
             "sourced_at": {
                 "type": "date",
