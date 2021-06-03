@@ -53,6 +53,8 @@ class FtcScrapyUser(scrapy.Item):
     url = scrapy.Field()
     platform = scrapy.Field()
     sourced_at = scrapy.Field()
+    ebay_evaluation_score = scrapy.Field()
+    positive_evaluations_percentage = scrapy.Field()
 
 
 class FtcScrapyBrand(scrapy.Item):

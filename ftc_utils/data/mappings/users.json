@@ -25,6 +25,12 @@
                 "ignore_above": 64,
                 "normalizer": "custom_lower_ascii"
             },
+            "ebay_evaluation_score": {
+                "type": "long"
+            },
+            "positive_evaluations_percentage": {
+                "type": "long"
+            },
             "item_count": {
                 "type": "long"
             },
