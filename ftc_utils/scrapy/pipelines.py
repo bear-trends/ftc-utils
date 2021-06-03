@@ -128,4 +128,5 @@ class ElasticsearchPipeline(object):
             print('Reached max buffer size')
             print('Saving results')
             self.save_results()
+            self.current_hold_items = 0
         return item
