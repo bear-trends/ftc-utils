@@ -1,4 +1,4 @@
 graft src/ftc_utils
-graft src/ftc_utils/selenium_helpers
+graft src/ftc_utils/selenium
 graft src/ftc_utils/data
-graft src/ftc_utils/scrapy_helpers
+graft src/ftc_utils/scrapy
