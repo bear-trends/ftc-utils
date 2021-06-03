@@ -4,7 +4,6 @@ setup(
     name="ftc-utils",
     description="Crawlers and db utils",
     version="0.0.2",
-    package_dir={"": "src"},
     packages=[
         "ftc_utils",
         "ftc_utils.data",
