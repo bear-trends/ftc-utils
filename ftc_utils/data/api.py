@@ -56,7 +56,7 @@ def get_es_connection():
         Bucket='ftc-data-storage', Key='api_keys.json'
     )['Body'].read()
 
-    host = key_file['es_instance_host']
+    host = json.loads(key_file)['es_instance_host']
     region = 'eu-west-3'
     service = 'es'
     credentials = boto3.Session().get_credentials()
