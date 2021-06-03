@@ -16,5 +16,4 @@ setup(
     author_email="mariedelahouce@gmx.fr",
     keywords=["scraping", "sourcing", "leboncoin", "vinted"],
     include_package_data=True,
-    install_requires=requirements,
 )
