@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name="ftc-utils",
     description="Crawlers and db utils",
-    version="0.0.1",
+    version="0.0.2",
     package_dir={"": "src"},
     packages=["data", "scrapy", "selenium"],
     url="https://github.com/bear-trends/ftc-utils",
