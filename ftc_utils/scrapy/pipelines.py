@@ -1,12 +1,13 @@
-import pandas as pd
+import datetime
 import gc
 import pickle
-from ..data.exporter import Exporter
-from elasticsearch import Elasticsearch, helpers
-import datetime
-from elasticsearch import Elasticsearch, RequestsHttpConnection
-from requests_aws4auth import AWS4Auth
+
 import boto3
+import pandas as pd
+from elasticsearch import Elasticsearch, RequestsHttpConnection, helpers
+from requests_aws4auth import AWS4Auth
+
+from ..data.exporter import Exporter
 
 
 class S3Pipeline(object):

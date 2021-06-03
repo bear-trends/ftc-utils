@@ -4,3 +4,4 @@ elasticsearch
 pyarrow
 boto3
 scrapy
+requests_aws4auth
