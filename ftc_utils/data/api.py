@@ -98,7 +98,7 @@ def make_es_indices(
     es = get_es_connection()
     folder_path = os.path.dirname(os.path.abspath(__file__))
     for table in tables:
-        table_path = f'/mappings/{table}.json'
+        table_path = f'mappings/{table}.json'
         path = os.path.join(folder_path, table_path)
         with open(path, 'r') as f:
             mapping = json.load(f)
