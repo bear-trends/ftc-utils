@@ -5,7 +5,7 @@ setup(
     description="Crawlers and db utils",
     version="0.0.2",
     package_dir={"": "src"},
-    packages=["data", "scrapy", "selenium"],
+    packages=["data", "scrapy_helpers", "selenium_helpers"],
     url="https://github.com/bear-trends/ftc-utils",
     author="Smirkey&Anko59",
     author_email="mariedelahouce@gmx.fr",
