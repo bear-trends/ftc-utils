@@ -112,6 +112,9 @@
                 "type": "date",
                 "format": "dd/MM/yyy HH:mm"
             },
+            "sku": {
+                "type": "keyword"
+            },
             "view_count": {
                 "type": "long"
             }

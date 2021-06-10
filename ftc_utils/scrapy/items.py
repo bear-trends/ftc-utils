@@ -28,6 +28,7 @@ class FtcScrapyItem(scrapy.Item):
     view_count = scrapy.Field()
     url = scrapy.Field()
     user_id = scrapy.Field()
+    sku = scrapy.Field()
     platform = scrapy.Field()
     sourced_at = scrapy.Field()
 

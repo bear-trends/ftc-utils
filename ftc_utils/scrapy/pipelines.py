@@ -115,7 +115,8 @@ class ElasticsearchPipeline(object):
         # pass if index not in saved_indexes
         if self.saved_indexes and index not in self.saved_indexes:
             return None
-        item['platform'] = self.platform
+        if 'platform' not in item.keys():
+            item['platform'] = self.platform
         item['sourced_at'] = datetime.datetime.now().strftime(
             '%d/%m/%Y %H:%M'
         )
