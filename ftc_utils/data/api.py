@@ -106,3 +106,24 @@ def make_es_indices(
             index=table,
             body=mapping
         )
+
+
+def update_mappings(tables=[
+        'items',
+        'users',
+        'brands',
+        'photos',
+        'accounts'
+    ]
+):
+    es = get_es_connection()
+    folder_path = os.path.dirname(os.path.abspath(__file__))
+    for table in tables:
+        table_path = f'mappings/{table}.json'
+        path = os.path.join(folder_path, table_path)
+        with open(path, 'r') as f:
+            mapping = json.load(f)
+        es.indices.put_mapping(
+            index=table,
+            body=mapping['mappings']
+        )
