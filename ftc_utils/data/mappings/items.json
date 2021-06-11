@@ -117,6 +117,12 @@
             },
             "view_count": {
                 "type": "long"
+            },
+            "like_count": {
+                "type": "long"
+            },
+            "negotiable": {
+                "type": "bool"
             }
         }
     }

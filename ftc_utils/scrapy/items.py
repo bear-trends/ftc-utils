@@ -31,6 +31,8 @@ class FtcScrapyItem(scrapy.Item):
     sku = scrapy.Field()
     platform = scrapy.Field()
     sourced_at = scrapy.Field()
+    like_count = scrapy.Field()
+    negotiable = scrapy.Field()
 
 
 class FtcScrapyUser(scrapy.Item):
@@ -56,6 +58,9 @@ class FtcScrapyUser(scrapy.Item):
     sourced_at = scrapy.Field()
     ebay_evaluation_score = scrapy.Field()
     positive_evaluations_percentage = scrapy.Field()
+    items_bought = scrapy.Field()
+    items_wished = scrapy.Field()
+    items_sold = scrapy.Field()
 
 
 class FtcScrapyBrand(scrapy.Item):
