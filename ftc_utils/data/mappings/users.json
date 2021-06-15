@@ -66,6 +66,15 @@
             "total_items_count": {
                 "type": "long"
             },
+            "items_bought": {
+                "type": "long"
+            },
+            "items_wished": {
+                "type": "long"
+            },
+            "items_sold": {
+                "type": "long"
+            },
             "description": {
                 "type": "text",
                 "fields": {

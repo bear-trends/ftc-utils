@@ -112,8 +112,17 @@
                 "type": "date",
                 "format": "dd/MM/yyy HH:mm"
             },
+            "sku": {
+                "type": "keyword"
+            },
             "view_count": {
                 "type": "long"
+            },
+            "like_count": {
+                "type": "long"
+            },
+            "negotiable": {
+                "type": "bool"
             }
         }
     }
