@@ -5,4 +5,3 @@ pyarrow
 boto3
 scrapy
 requests_aws4auth
-setuptools==1.0
