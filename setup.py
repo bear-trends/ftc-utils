@@ -1,5 +1,8 @@
 from setuptools import setup
 
+with open("requirements.txt", "r") as f:
+    requirements = [package.strip("\n") for package in f.readlines()]
+    
 setup(
     name="ftc-utils",
     description="Crawlers and db utils",
@@ -15,4 +18,5 @@ setup(
     author_email="mariedelahouce@gmx.fr",
     keywords=["scraping", "sourcing", "leboncoin", "vinted"],
     include_package_data=True,
+    install_requires=requirements,
 )
