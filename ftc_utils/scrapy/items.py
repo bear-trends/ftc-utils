@@ -33,6 +33,7 @@ class FtcScrapyItem(scrapy.Item):
     sourced_at = scrapy.Field()
     like_count = scrapy.Field()
     negotiable = scrapy.Field()
+    is_sold = scrapy.Field()
 
 
 class FtcScrapyUser(scrapy.Item):

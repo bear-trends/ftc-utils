@@ -123,6 +123,9 @@
             },
             "negotiable": {
                 "type": "bool"
+            },
+            "is_sold": {
+                "type": "bool"
             }
         }
     }
