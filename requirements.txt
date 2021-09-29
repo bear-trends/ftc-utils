@@ -1,6 +1,6 @@
 selenium
 pandas
-elasticsearch
+elasticsearch==7.12.1
 pyarrow
 boto3
 scrapy
